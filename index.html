@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+      *{
+        background-color: rgb(16, 255, 255);
+      }
+        #target{
+            position: absolute;
+            left:200px;
+            background-color: rgb(209, 61, 61);
+            border: none;
+            width: 90px;
+            border-radius: 10px;
+            font-size:25px ;
+            padding: 8px;
+            cursor: pointer;
+            transition: top 0.5s ,left 0.5s;
+        }
+        #game-container{
+            position: relative;
+            width: 500px;
+            height: 600px;
+            border: 2px;
+            overflow: hidden;
+        }
+        .yes{
+          position: absolute;
+            background-color: rgb(55, 246, 49);
+            border: none;
+            width: 90px;
+            border-radius: 10px;
+            font-size:25px ;
+            padding: 8px;
+            cursor: pointer;
+            transition: top 0.5s ,left 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="box">
+            <h1>Do you love me?</h1>
+            <button id="target">NO</button>
+            <button class="yes" onclick="handleClick()">Yes</button>
+        </div>
+    </div>
+</body>
+<script>
+    const target = document.getElementById('target');
+    const maxWidth = 400;
+    const maxHeight = 400;
+  
+    function moveTarget() {
+      const randomX = Math.floor(Math.random() * maxWidth);
+      const randomY = Math.floor(Math.random() * maxHeight);
+  
+      if (target) {
+        target.style.left = `${randomX}px`;
+        target.style.top = `${randomY}px`;
+      } else {
+        console.error('Element with id "target" not found');
+      }
+    }
+
+    target.addEventListener('mouseenter', moveTarget);
+    moveTarget(); 
+    function handleClick() {
+      alert('Thank you for loving me!');
+    }
+  </script>
+</html>
